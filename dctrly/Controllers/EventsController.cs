@@ -27,7 +27,7 @@ public class EventsController(ILogger<EventsController> logger, IMediator mediat
         }
     }
 
-    [HttpPut]
+    [HttpPost]
     public async Task<IActionResult> CreateEventAsync([FromBody] CreateEventCommand command)
     {
         try
@@ -41,7 +41,22 @@ public class EventsController(ILogger<EventsController> logger, IMediator mediat
             return Problem(statusCode: 400, title: "BadRequest", detail: "Error creating event");
         }
     }
-    
+
+    [HttpPut]
+    public async Task<IActionResult> UpdateAsync([FromRoute] int id, [FromBody] UpdateEventCommand command)
+    {
+        try
+        {
+            await mediator.Send(command);
+            return Ok();
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "Error updating event");
+            return Problem(statusCode: 400, title: "BadRequest", detail: "Error updating event");
+        }
+    }
+
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> DeleteEventAsync([FromRoute] int id)
     {

@@ -24,4 +24,13 @@ public class Event
         StartDate = startDate;
         EndDate = endDate;
     }
+
+    public Event(int id, string title, string? description, DateTime startDate, DateTime endDate)
+    {
+        Id = id;
+        Title = title;
+        Description = description;
+        StartDate = startDate;
+        EndDate = endDate;
+    }
 }

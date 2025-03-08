@@ -31,13 +31,30 @@ internal class EventRepository(DoctorlyDataContext context) : IEventRepository
 
     public async Task DeleteAsync(int eventId, CancellationToken cancellationToken)
     {
-        var entity = await context.Events.FindAsync([eventId], cancellationToken: cancellationToken);
-        if (entity is null)
+        var @event = await context.Events.FindAsync([eventId], cancellationToken: cancellationToken);
+        if (@event is null)
         {
             return;
         }
-
-        context.Events.Remove(entity);
+    
+        context.Events.Remove(@event);
         await context.SaveChangesAsync(cancellationToken);
+    }
+    
+    public async Task<Event?> UpdateAsync(Event updatedEvent, CancellationToken cancellationToken)
+    {
+        var existingEvent = await context.Events.FindAsync([updatedEvent.Id], cancellationToken);
+        if (existingEvent is null)
+        {
+            return null;
+        }
+    
+        existingEvent.Title = updatedEvent.Title;
+        existingEvent.Description = updatedEvent.Description;
+        existingEvent.StartDate = updatedEvent.StartDate;
+        existingEvent.EndDate = updatedEvent.EndDate;
+        
+        await context.SaveChangesAsync(cancellationToken);
+        return existingEvent;
     }
 }

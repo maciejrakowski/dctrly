@@ -1,0 +1,21 @@
+meta {
+  name: update
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:5277/events
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id": 5,
+    "name": "test event updated 2026",
+    "Description": null,
+    "StartDate": "2026-05-01T12:00:00Z",
+    "EndDate": "2026-05-01T15:00:00Z"
+  }
+}

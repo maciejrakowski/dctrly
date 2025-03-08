@@ -2,7 +2,6 @@ using dctrly.Application.Framework;
 using dctrly.Infrastructure.Data;
 using dctrly.Infrastructure.Framework;
 using Microsoft.EntityFrameworkCore;
-using Npgsql.EntityFrameworkCore.PostgreSQL;
 
 var builder = WebApplication.CreateBuilder(args);
 

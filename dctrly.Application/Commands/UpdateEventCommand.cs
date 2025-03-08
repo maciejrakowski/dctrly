@@ -1,0 +1,25 @@
+﻿using MediatR;
+
+namespace dctrly.Application.Commands;
+
+public class UpdateEventCommand : IRequest
+{
+    public int Id { get; set; }
+    public required string Name { get; set; }
+    public string? Description { get; set; }
+    public DateTime StartDate { get; set; }
+    public DateTime EndDate { get; set; }
+
+    public UpdateEventCommand()
+    {
+    }
+
+    public UpdateEventCommand(int id, string name, string? description, DateTime startDate, DateTime endDate)
+    {
+        Id = id;
+        Name = name;
+        Description = description;
+        StartDate = startDate;
+        EndDate = endDate;
+    }
+}
