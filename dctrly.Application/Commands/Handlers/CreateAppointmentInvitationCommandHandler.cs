@@ -8,7 +8,8 @@ namespace dctrly.Application.Commands.Handlers;
 public class CreateAppointmentInvitationCommandHandler(
     IEventRepository eventRepository,
     IAttendeeRepository attendeeRepository,
-    ILogger<CreateAppointmentInvitationCommandHandler> logger)
+    ILogger<CreateAppointmentInvitationCommandHandler> logger,
+    IMediator mediator)
     : IRequestHandler<CreateAppointmentInvitationCommand, int?>
 {
     public async Task<int?> Handle(CreateAppointmentInvitationCommand request, CancellationToken cancellationToken)
@@ -25,7 +26,7 @@ public class CreateAppointmentInvitationCommandHandler(
             var attendee = new Attendee(request.EventId, request.Name, request.Email);
             var id = await attendeeRepository.CreateAppointmentInvitationAsync(attendee);
 
-            // send email maybe?
+            await mediator.Send(new SendInviteEmailCommand() { AttendeeId = id }, cancellationToken);
             
             return id;
         }

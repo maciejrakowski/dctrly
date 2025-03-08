@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dctrly.Application", "dctrl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dctrly.Infrastructure", "dctrly.Infrastructure\dctrly.Infrastructure.csproj", "{5F6029F6-AC86-4023-85E1-67F53FB79372}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{EC2621D1-B2F7-470F-B278-65AF775754BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dctrly.Application.Test", "dctrly.Application.Test\dctrly.Application.Test.csproj", "{D41ABB28-75DB-4CA9-96DC-BA1327FBB303}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,12 @@ Global
 		{5F6029F6-AC86-4023-85E1-67F53FB79372}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F6029F6-AC86-4023-85E1-67F53FB79372}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F6029F6-AC86-4023-85E1-67F53FB79372}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D41ABB28-75DB-4CA9-96DC-BA1327FBB303}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D41ABB28-75DB-4CA9-96DC-BA1327FBB303}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D41ABB28-75DB-4CA9-96DC-BA1327FBB303}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D41ABB28-75DB-4CA9-96DC-BA1327FBB303}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D41ABB28-75DB-4CA9-96DC-BA1327FBB303} = {EC2621D1-B2F7-470F-B278-65AF775754BC}
 	EndGlobalSection
 EndGlobal
