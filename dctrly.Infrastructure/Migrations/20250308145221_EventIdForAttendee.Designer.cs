@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using dctrly.Infrastructure.Data;
@@ -11,9 +12,11 @@ using dctrly.Infrastructure.Data;
 namespace dctrly.Infrastructure.Migrations
 {
     [DbContext(typeof(DoctorlyDataContext))]
-    partial class DoctorlyDataContextModelSnapshot : ModelSnapshot
+    [Migration("20250308145221_EventIdForAttendee")]
+    partial class EventIdForAttendee
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
