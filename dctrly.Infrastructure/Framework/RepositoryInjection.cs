@@ -9,5 +9,6 @@ public static class RepositoryInjection
     public static void InjectRepositories(this IServiceCollection service)
     {
         service.AddScoped<IEventRepository, EventRepository>();
+        service.AddScoped<IAttendeeRepository, AttendeeRepository>();
     }
 }

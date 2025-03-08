@@ -1,0 +1,17 @@
+meta {
+  name: reject-appointment-invitation
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:5277/attendees/reject-appointment-invitation
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "AttendeeId": 1
+  }
+}

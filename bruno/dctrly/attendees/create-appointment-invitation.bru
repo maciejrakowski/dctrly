@@ -1,0 +1,20 @@
+meta {
+  name: create-appointment-invitation
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:5277/attendees/create-appointment-invitation
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "EventId": 5,
+    "Name": "Jane Smith",
+    "Email": "janesmith@example.com"
+  }
+  
+}

@@ -23,4 +23,14 @@ public class Attendee
         Name = name;
         Email = email;
     }
+
+    public void AcceptAppointment()
+    {
+        IsAttending = true;
+    }
+
+    public void RejectAppointment()
+    {
+        IsAttending = false;
+    }
 }

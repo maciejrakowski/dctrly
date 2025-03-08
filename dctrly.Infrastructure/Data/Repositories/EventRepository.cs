@@ -7,6 +7,11 @@ namespace dctrly.Infrastructure.Data.Repositories;
 /// <inheritdoc cref="IEventRepository"/>
 internal class EventRepository(DoctorlyDataContext context) : IEventRepository
 {
+    public async Task<Event?> GetEventAsync(int eventId, CancellationToken cancellationToken)
+    {
+        return await context.Events.FindAsync([eventId], cancellationToken: cancellationToken);
+    }
+    
     public async Task<IEnumerable<Event>> GetEventsAsync(string? titleFilter, string? descriptionFilter,
         DateTime? dateFromFilter, DateTime? dateToFilter, CancellationToken cancellationToken)
     {

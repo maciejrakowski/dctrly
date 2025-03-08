@@ -46,4 +46,14 @@ public interface IEventRepository
     /// A task that represents the asynchronous operation. The task result contains the updated event if the operation is successful, or null if no matching event was found.
     /// </returns>
     Task<Event?> UpdateAsync(Event updatedEvent, CancellationToken cancellationToken);
+
+    /// <summary>
+    /// Retrieves a single event by its unique identifier.
+    /// </summary>
+    /// <param name="eventId">The unique identifier of the event to fetch.</param>
+    /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+    /// <returns>
+    /// A task that represents the asynchronous operation. The task result contains the event with the specified identifier, or null if no such event exists.
+    /// </returns>
+    Task<Event?> GetEventAsync(int eventId, CancellationToken cancellationToken);
 }
