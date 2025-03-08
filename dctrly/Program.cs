@@ -1,4 +1,6 @@
+using dctrly.Application.Framework;
 using dctrly.Infrastructure.Data;
+using dctrly.Infrastructure.Framework;
 using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 
@@ -13,6 +15,9 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<DoctorlyDataContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.InjectRepositories();
+
+builder.Services.RegisterMediatRHandlers();
 
 var app = builder.Build();
 

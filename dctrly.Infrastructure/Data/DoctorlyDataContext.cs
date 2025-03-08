@@ -9,6 +9,6 @@ public class DoctorlyDataContext : DbContext
     {
     }
 
-    DbSet<Attendee> Attendees { get; set; }
-    DbSet<Event> Events { get; set; }
+    public DbSet<Attendee> Attendees { get; set; }
+    public DbSet<Event> Events { get; set; }
 }
